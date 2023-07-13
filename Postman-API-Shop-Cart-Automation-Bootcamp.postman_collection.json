@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "79d4c31c-e02a-42be-8dda-ecdfe0822507",
+		"name": "API Shop Cart Automation Bootcamp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26443072"
+	},
+	"item": [
+		{
+			"name": "View Shopping Cart",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('view shopping cart successfully', function(){",
+							"    pm.response.to.have.status(200);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Client-Id",
+						"value": "DPE-QE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8500/shoppingcart/items?Type=Fresh&Discount=Applied",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8500",
+					"path": [
+						"shoppingcart",
+						"items"
+					],
+					"query": [
+						{
+							"key": "Type",
+							"value": "Fresh"
+						},
+						{
+							"key": "Discount",
+							"value": "Applied"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Shopping Cart No Client-Id",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Unauthorized request! Client-Id is missing or invalid.', function(){",
+							"    pm.response.to.have.status(401);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Client-Id",
+						"value": "DPE-QE",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8500/shoppingcart/items?Type=Fresh&Discount=Applied",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8500",
+					"path": [
+						"shoppingcart",
+						"items"
+					],
+					"query": [
+						{
+							"key": "Type",
+							"value": "Fresh"
+						},
+						{
+							"key": "Discount",
+							"value": "Applied"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Shopping Cart No Type",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Invalid request! Parameters are missing or invalid.', function(){",
+							"    pm.response.to.have.status(400);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Client-Id",
+						"value": "DPE-QE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8500/shoppingcart/items?Discount=Applied",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8500",
+					"path": [
+						"shoppingcart",
+						"items"
+					],
+					"query": [
+						{
+							"key": "Type",
+							"value": "Fresh",
+							"disabled": true
+						},
+						{
+							"key": "Discount",
+							"value": "Applied"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Shopping Cart No Discount",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Invalid request! Parameters are missing or invalid.', function(){",
+							"    pm.response.to.have.status(400);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Client-Id",
+						"value": "DPE-QE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8500/shoppingcart/items?Type=Fresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8500",
+					"path": [
+						"shoppingcart",
+						"items"
+					],
+					"query": [
+						{
+							"key": "Type",
+							"value": "Fresh"
+						},
+						{
+							"key": "Discount",
+							"value": "Applied",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Client-Id",
+			"value": "DPE-QE",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "Type",
+			"value": "Fresh",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "Discount",
+			"value": "Applied",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
